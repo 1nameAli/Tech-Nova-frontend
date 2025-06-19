@@ -33,7 +33,7 @@ const Login = () => {
       successHandler("Login Successful");
           // ✅ Redirect to external dashboard app
     setTimeout(() => {
-      window.location.href = "http://localhost:5174/";
+      window.location.href = "https://tech-nova-dashboard.vercel.app";
     }, 1500)
       console.log("Login success:", res.data);
     } catch (err) {
