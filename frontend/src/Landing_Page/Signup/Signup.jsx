@@ -25,24 +25,27 @@ const Signup = () => {
     }
 
     try {
-      const res = await axios.post(
-        `${baseUrl}/api/auth/signup`,
-        signupInfo,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-      successHandler("Signup successful");
-      console.log("Signup successful:", res.data);
-    } catch (err) {
-      errorHandler(err.response?.data?.message || "Signup failed");
-      console.error("Signup error:", err);
-    } finally {
-      setIsLoading(false);
-    }
-  };
+    const res = await axios.post(
+      `${baseUrl}/api/auth/signup`,
+      signupInfo,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    successHandler("Signup successful");
+    console.log("Signup successful:", res.data);
+
+    // ✅ Redirect after success
+    window.location.href = "https://tech-nova-dashboard.vercel.app";
+  } catch (err) {
+    errorHandler(err.response?.data?.message || "Signup failed");
+    console.error("Signup error:", err);
+  } finally {
+    setIsLoading(false);
+  }
+};
 
   return (
     <div className="container mt-5">
